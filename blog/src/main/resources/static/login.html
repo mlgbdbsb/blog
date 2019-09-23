@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cool Blog - 登录</title>
+</head>
+<body>
+	<form id="form-login">
+		<input type="text" name="username" placeholder="输入用户名">
+		<input type="password" name="password" placeholder="输入密码">
+		<input type="button" id="btn-login" value="登录">
+	</form>
+	<script type="text/javascript" src="./jquery.min.js"></script>
+	<script type="text/javascript">
+		$("#btn-login").click(function(){
+			"url":"",
+			"data":"",
+			"dataType":"json",
+			"type":"post",
+			"success":function(json){
+				if(json.state==200){
+					alert("登录成功");
+				}else{
+					alert("登录失败！"+json.message);
+				}
+			}
+		});
+	</script>
+</body>
+</html>

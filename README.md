@@ -153,7 +153,10 @@ CREATE TABLE blog_category(
 ```SQL
 CREATE TABLE blog_article_with_category(
 	id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
-	category_id INT UNSIGNED NOT NULL COMMENT '标签id',
+	article_id BIGINT UNSIGNED NOT NULL COMMENT '文章id',
+	category_id BIGINT UNSIGNED NOT NULL COMMENT '标签id',
+	gmt_create DATETIME NOT NULL COMMENT '创建时间',
+	gmt_modified DATETIME NOT NULL COMMENT '修改时间',
 	PRIMARY KEY(id)
 ) COMMENT '标签以及文章对应关系表';
 ```
@@ -194,6 +197,8 @@ CREATE TABLE blog_admin(
 	username VARCHAR(50) NOT NULL COMMENT '管理员账号',
 	password CHAR(32) NOT NULL COMMENT '管理员密码',
 	salt CHAR(36) NOT NULL COMMENT '盐值',
+	gmt_create DATETIME NOT NULL COMMENT '创建时间',
+	gmt_modified DATETIME NOT NULL COMMENT '修改时间',
 	PRIMARY KEY(id)
 ) COMMENT '管理员表';
 ```
@@ -283,3 +288,9 @@ private static String parseHtml(String html) {
 	return (html + "...");
 }
 ```
+
+
+
+
+
+

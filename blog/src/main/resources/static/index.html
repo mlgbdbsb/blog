@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cool Blog - 初始化</title>
+</head>
+<body>
+
+	<form id="init-form">
+		<input type="text" name="username" placeholder="输入用户名" id="username">
+		<input type="password" name="password" placeholder="输入密码" id="password">
+		<input type="button" value="确认" id="btn-init">
+	</form>
+
+	<script type="text/javascript" src="./jquery.min.js"></script>
+	<script type="text/javascript">
+		$("#btn-init").click(function(){
+			$.ajax({
+				"url":"/init",
+				"data":$("#init-form").serialize(),
+				"dataType":"json",
+				"type":"post",
+				"success":function(json){
+					if(json.state==200){
+						alert("初始化成功");
+					}else{
+						alert("初始化失败！"+json.message);
+					}
+				}
+			});
+		});
+	</script>
+</body>
+</html>

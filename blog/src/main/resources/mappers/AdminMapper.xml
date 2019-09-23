@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.wang.blog.mapper.AdminMapper">
+	
+	<!-- 插入管理员 -->
+	<!-- Integer save(Admin admin); -->
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO blog_admin(
+			username,password,salt,
+			gmt_create,gmt_modified
+		) VALUES(
+			#{username},#{password},#{salt},
+			#{gmtCreate},#{gmtModified}
+		)
+	</insert>
+	
+	<!-- 根据用户名查找管理员 -->
+	<!-- UserEntity findByUsername(String username); -->
+	<select id="findByUsername" resultType="com.wang.blog.model.entity.Admin">
+		SELECT
+			id,username,password,salt,gmt_create AS gmtCreate,gmt_modified AS gmtModified
+		FROM
+			blog_admin
+		WHERE
+			username=#{username}
+	</select>
+	
+</mapper>

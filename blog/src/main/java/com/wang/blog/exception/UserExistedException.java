@@ -1,0 +1,33 @@
+package com.wang.blog.exception;
+
+public class UserExistedException extends ServiceException {
+
+	private static final long serialVersionUID = -8432675539105264533L;
+
+	public UserExistedException() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public UserExistedException(String message, Throwable cause, boolean enableSuppression,
+			boolean writableStackTrace) {
+		super(message, cause, enableSuppression, writableStackTrace);
+		// TODO Auto-generated constructor stub
+	}
+
+	public UserExistedException(String message, Throwable cause) {
+		super(message, cause);
+		// TODO Auto-generated constructor stub
+	}
+
+	public UserExistedException(String message) {
+		super(message);
+		// TODO Auto-generated constructor stub
+	}
+
+	public UserExistedException(Throwable cause) {
+		super(cause);
+		// TODO Auto-generated constructor stub
+	}
+
+}
